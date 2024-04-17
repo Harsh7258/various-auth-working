@@ -1,0 +1,64 @@
+/* Set up the basic structure */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+  
+  #container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  /* Style the button container */
+  #btn-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  #btn-container button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    color: darksalmon;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Style the admin container */
+  #admin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  #admin-container button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    color: dimgray;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+  }
+  
+  #data-space {
+    text-align: center;
+  }
+  
+  /* Responsiveness for smaller screens */
+  @media (max-width: 768px) {
+    #btn-container {
+      flex-wrap: wrap;
+    }
+  
+    #btn-container button {
+      width: 48%; /* Adjust width as needed */
+      margin-bottom: 0.5rem;
+    }
+  }
+  
+  

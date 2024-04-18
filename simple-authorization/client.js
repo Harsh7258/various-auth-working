@@ -5,13 +5,13 @@ const getData = document.getElementById("admin")
 const dataDiv = document.getElementById("data-space")
 
 login1.addEventListener("click", () => {
-    login("User1")
+    login("Harsh")
 })
 login2.addEventListener("click", () => {
-    login("User2")
+    login("Sancho")
 })
 login3.addEventListener("click", () => {
-    login("User3")
+    login("no name")
 })
 
 getData.addEventListener('click', () => {
@@ -20,7 +20,7 @@ getData.addEventListener('click', () => {
         headers: {
             "Content-Type": "application/json"
         },
-    }).then(res => res.text()).then(data => getData.textContent = data).catch(err => console.log(err))
+    }).then(res => res.text()).then(data => dataDiv.textContent = data).catch(err => console.log(err.message))
 })
 
 function login(username) {
@@ -31,5 +31,5 @@ function login(username) {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({ username }) // sets req.body
-    }).then(res => res.text()).then(data => dataDiv.textContent = data).catch(err => console.log(err))
+    }).then(res => res.text()).then(data => dataDiv.textContent = data).catch(err => console.log(err.message))
 }

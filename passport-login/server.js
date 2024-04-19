@@ -1,6 +1,7 @@
 const express = require("express")
 const bcrypt = require("bcrypt")
 
+const USERS = []
 const app = express()
 const PORT = 3000
 
@@ -22,8 +23,20 @@ app.post('login', (req, res) => {
 app.get('/signup', (req, res) => {
     res.render('signup.ejs')
 })
-app.post('/signup', (req, res) => {
-
+app.post('/signup', async (req, res) => {
+    try {
+        const hashedPassword = await bcrypt.hash(req.body.password, 10)
+        USERS.push({
+            id: Date.now().toString(),
+            name: req.body.name,
+            email: req.body.email,
+            password: hashedPassword
+        })
+        res.redirect('/login')
+        console.log(USERS)
+    } catch (error) {
+        res.redirect('/signup')
+    }
 })
 
 app.listen(PORT, () => {

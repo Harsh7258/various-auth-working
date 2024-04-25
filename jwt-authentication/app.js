@@ -25,14 +25,6 @@ app.get('/posts', authenticateToken, (req, res) => {
     res.status(200).json(POSTS.filter(post => post.username === req.user.user ))
 })
 
-app.post('/login', (req, res) => {
-    const username = req.body.username
-    const user = { user: username }
-
-    const accessToken = jwt.sign(user, process.env.SERCET_ACCESS_KEY)
-    res.json({ accessToken: accessToken })
-})
-
 function authenticateToken(req, res, next) {
     const authHeader = req.headers['authorization']
     const token = authHeader && authHeader.split(' ')[1] // Bearer token

@@ -20,7 +20,7 @@ app.post('/users', async (req, res) => {
         const user = { name: req.body.name, password: hashedPassword }
 
         USERS.push(user)
-        res.status(201).send()
+        res.status(201).json({ status: "success" })
     } catch (error) {
         res.status(500).json({
             message: "invalid password or user"
